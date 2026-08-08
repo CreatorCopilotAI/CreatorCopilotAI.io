@@ -133,9 +133,17 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-3.5 mb-10 w-full sm:w-auto"
             >
               <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" id="hero-play-store-cta"
-                className="btn-primary text-sm px-6 py-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.058 10.292L5.437.319c-.5-.3-1.16-.3-1.66 0-.5.3-.8.83-.8 1.4V22.28c0 .57.3 1.1.8 1.4.25.15.53.22.81.22.28 0 .56-.07.81-.22l16.666-9.973c.49-.3.79-.83.79-1.4s-.3-1.1-.79-1.4zM4.978 2.585l12.44 7.452L4.978 17.49V2.585z"/></svg>
-                Get on Play Store
+                className="inline-flex items-center gap-3 px-4 py-1.5 rounded-md bg-black text-white hover:bg-neutral-900 transition-colors duration-200 border border-neutral-800 shadow-sm"
+              >
+                <img
+                  src="/images/play_store_logo.png"
+                  alt="Google Play logo"
+                  className="w-5.5 h-5.5 object-contain flex-shrink-0"
+                />
+                <div className="text-left flex flex-col justify-center leading-none">
+                  <span className="text-[8px] font-bold text-neutral-300 tracking-wider uppercase">GET IT ON</span>
+                  <span className="text-sm font-semibold text-white tracking-tight mt-0.5">Google Play</span>
+                </div>
               </a>
               <a href={APP_URL} target="_blank" rel="noopener noreferrer" id="hero-webapp-cta"
                 className="btn-secondary text-sm px-6 py-3">
