@@ -40,16 +40,16 @@ export default function CTA() {
                   target="_blank"
                   rel="noopener noreferrer"
                   id="cta-play-store"
-                  className="inline-flex items-center gap-3 px-4 py-1.5 rounded-md bg-black text-white hover:bg-neutral-900 transition-colors duration-200 border border-neutral-800 shadow-sm"
+                  className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-black text-white hover:bg-neutral-900 transition-colors duration-200 border border-neutral-800 shadow-sm"
                 >
                   <img
                     src="/images/play_store_logo.png"
                     alt="Google Play logo"
-                    className="w-5.5 h-5.5 object-contain flex-shrink-0"
+                    className="w-[24px] h-[24px] object-contain flex-shrink-0"
                   />
                   <div className="text-left flex flex-col justify-center leading-none">
-                    <span className="text-[8px] font-bold text-neutral-300 tracking-wider uppercase">GET IT ON</span>
-                    <span className="text-sm font-semibold text-white tracking-tight mt-0.5">Google Play</span>
+                    <span className="text-[7.5px] font-bold text-neutral-300 tracking-wider uppercase">GET IT ON</span>
+                    <span className="text-xs font-semibold text-white tracking-tight mt-0.5">Google Play</span>
                   </div>
                 </a>
                 <a
