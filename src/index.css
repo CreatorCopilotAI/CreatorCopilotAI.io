@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -14,16 +14,16 @@
   }
 
   body {
-    font-family: 'Inter', sans-serif;
-    color: #0F172A;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #425466;
     background: #FFFFFF;
     margin: 0; padding: 0;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.15;
-    color: #0F172A;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    color: #0A2540;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -36,150 +36,76 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white text-sm shadow-btn-glow transition-all duration-300;
-    background: linear-gradient(135deg, #2563EB 0%, #4F46E5 50%, #6D28D9 100%);
-    background-size: 200% 200%;
+    @apply inline-flex items-center gap-2 px-6 py-2.5 rounded font-semibold text-white text-sm transition-all duration-200 bg-[#635BFF];
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   }
   .btn-primary:hover {
-    @apply shadow-btn-glow-hover scale-105;
-    background-position: right center;
+    @apply scale-[1.02] bg-[#0A2540];
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-brand-blue text-sm border-2 border-brand-blue transition-all duration-300;
+    @apply inline-flex items-center gap-2 px-6 py-2.5 rounded font-semibold text-[#0A2540] text-sm border border-[#E6E8EB] bg-white transition-all duration-200;
   }
-  .btn-secondary:hover { @apply bg-brand-blue text-white scale-105; }
+  .btn-secondary:hover {
+    @apply bg-slate-50 border-slate-300 scale-[1.02];
+  }
 
   .section-heading {
-    @apply font-display font-bold text-3xl md:text-4xl lg:text-5xl text-text-heading leading-tight;
+    @apply font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#0A2540] tracking-tight leading-tight;
   }
   .section-subheading {
-    @apply text-base md:text-lg text-text-body leading-relaxed;
+    @apply text-base md:text-lg text-text-body leading-relaxed max-w-3xl mx-auto;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #2563EB 0%, #6D28D9 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @apply text-[#635BFF];
   }
 
-  /* 3D Card base */
-  .card-3d {
-    transform-style: preserve-3d;
-    will-change: transform;
-    @apply bg-white rounded-2xl shadow-card border border-slate-100 transition-shadow duration-300;
+  /* MNC Flat clean card structure */
+  .card-mnc {
+    @apply bg-white rounded-xl shadow-card border border-slate-200 transition-all duration-200;
   }
-  .card-3d:hover { @apply shadow-card-hover; }
-
-  /* Glassmorphism card */
-  .glass-card {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255,255,255,0.6);
-    @apply rounded-2xl shadow-card;
+  .card-mnc:hover {
+    @apply shadow-card-hover -translate-y-0.5 border-slate-300;
   }
 
   .feature-card {
-    @apply card-3d p-6 cursor-default;
-    transform-style: preserve-3d;
+    @apply card-mnc p-8;
   }
 
-  .icon-gradient { background: linear-gradient(135deg, #2563EB, #6D28D9); }
+  .icon-gradient {
+    @apply bg-[#635BFF]/10 text-[#635BFF];
+  }
 }
 
 @layer utilities {
   .container-custom { @apply max-w-7xl mx-auto px-6 md:px-10 lg:px-20; }
-  .section-padding  { @apply py-16 md:py-24; }
+  .section-padding  { @apply py-20 md:py-28; }
 }
 
-/* ── Typing cursor ─────────────────────────── */
+/* ── Minimal clean typography cursor ─────────────────────────── */
 .typing-cursor::after {
   content: '|';
   animation: blink 0.75s step-end infinite;
-  color: #2563EB;
+  color: #635BFF;
   font-weight: 300;
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-/* ── Gradient animated blob ────────────────── */
-.blob-gradient {
-  background: radial-gradient(ellipse at 30% 50%, rgba(37,99,235,.22) 0%, rgba(109,40,217,.16) 40%, transparent 70%);
-  filter: blur(60px);
-  animation: blobPulse 8s ease-in-out infinite;
-}
-@keyframes blobPulse {
-  0%,100%{ transform:scale(1) translate(0,0); opacity:.7; }
-  33%    { transform:scale(1.1) translate(2%,-3%); opacity:1; }
-  66%    { transform:scale(.95) translate(-2%,2%); opacity:.8; }
+/* ── Minimalist background pattern (corporate standard) ────────────────── */
+.corporate-bg-pattern {
+  background-image: radial-gradient(circle, #e6e8eb 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* ── 3D Phone mockup ───────────────────────── */
-.phone-3d {
-  transform: perspective(1200px) rotateY(-18deg) rotateX(6deg) rotate(-2deg);
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
-  filter: drop-shadow(0 40px 80px rgba(37,99,235,.25)) drop-shadow(0 20px 40px rgba(109,40,217,.15));
-}
-.phone-3d:hover {
-  transform: perspective(1200px) rotateY(-8deg) rotateX(2deg) rotate(0deg);
+/* ── Clean flat image styles ───────────────────────── */
+.app-screenshot-container {
+  @apply rounded-xl border border-slate-200 shadow-card bg-white p-2;
 }
 
-/* Floating card 3D depth */
-.float-card {
-  transform-style: preserve-3d;
-  animation: floatCard 4s ease-in-out infinite;
-  filter: drop-shadow(0 8px 24px rgba(37,99,235,.15));
-}
-@keyframes floatCard {
-  0%,100%{ transform:translateY(0) translateZ(0); }
-  50%    { transform:translateY(-8px) translateZ(10px); }
-}
-
-/* ── Step connector ────────────────────────── */
-.step-connector { background: linear-gradient(to right,#2563EB,#6D28D9); }
-
-/* ── Particle dots ─────────────────────────── */
-.particle {
-  position:absolute; border-radius:50%;
-  background: radial-gradient(circle, rgba(99,102,241,.6), transparent);
-  animation: particleDrift linear infinite;
-}
-@keyframes particleDrift {
-  0%  { transform: translateY(0) translateX(0) scale(1); opacity:.6; }
-  50% { transform: translateY(-60px) translateX(20px) scale(1.2); opacity:.3; }
-  100%{ transform: translateY(0) translateX(0) scale(1); opacity:.6; }
-}
-
-/* ── Shimmer on CTA ────────────────────────── */
-.shimmer {
-  position:relative; overflow:hidden;
-}
-.shimmer::after {
-  content:''; position:absolute; top:0; left:-100%; width:60%; height:100%;
-  background: linear-gradient(to right, transparent 0%, rgba(255,255,255,.2) 50%, transparent 100%);
-  animation: shimmerMove 3s ease-in-out infinite;
-}
-@keyframes shimmerMove {
-  0%  { left:-100%; }
-  100%{ left:200%; }
-}
-
-/* ── Number counter ────────────────────────── */
-@keyframes countUp { from{ opacity:0; transform:translateY(8px); } to{ opacity:1; transform:translateY(0); } }
-.count-up { animation: countUp 0.6s ease forwards; }
-
-/* ── Glow ring on active step ──────────────── */
-@keyframes ringPulse {
-  0%,100%{ box-shadow: 0 0 0 0 rgba(37,99,235,.4); }
-  50%    { box-shadow: 0 0 0 12px rgba(37,99,235,0); }
-}
-.ring-pulse { animation: ringPulse 2s ease-in-out infinite; }
-
-/* ── Scroll progress bar ───────────────────── */
+/* ── Progress bar ───────────────────── */
 #scroll-progress {
   position:fixed; top:0; left:0; height:3px; z-index:100;
-  background: linear-gradient(to right,#2563EB,#6D28D9);
+  background: #635BFF;
   transition: width 0.1s linear;
 }

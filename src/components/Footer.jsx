@@ -60,7 +60,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="footer" className="bg-text-heading text-white">
+    <footer id="footer" className="bg-[#0A2540] text-[#E6E8EB] border-t border-[#1E3A8A]/10">
       <div className="container-custom py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
 
@@ -70,14 +70,14 @@ export default function Footer() {
               <img
                 src="/images/logo.png"
                 alt="CreatorCopilotAI logo"
-                className="w-9 h-9 object-contain"
+                className="w-8 h-8 object-contain"
               />
-              <span className="font-display font-bold text-lg tracking-tight">
-                Creator<span style={{ background: 'linear-gradient(135deg,#60a5fa,#a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>CopilotAI</span>
+              <span className="font-display font-extrabold text-lg text-white tracking-tight">
+                Creator<span className="text-[#635BFF]">CopilotAI</span>
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-              AI-powered content creation for creators who want to publish faster and grow smarter.
+              Secure, enterprise-grade AI architecture to scale marketing copywriting and asset production.
             </p>
 
             {/* Social links */}
@@ -89,7 +89,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-blue flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200 hover:scale-110"
+                  className="w-8 h-8 rounded bg-slate-800 hover:bg-[#635BFF] flex items-center justify-center text-slate-400 hover:text-white transition-all duration-200"
                 >
                   {icon}
                 </a>
@@ -99,14 +99,14 @@ export default function Footer() {
 
           {/* Nav links */}
           <div>
-            <h4 className="font-display font-semibold text-sm uppercase tracking-widest text-slate-400 mb-5">Product</h4>
+            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-slate-400 mb-5">Product Console</h4>
             <ul className="flex flex-col gap-3">
               {NAV_LINKS.map(({ label, href }) => (
                 <li key={href}>
                   <a
                     href={href}
                     onClick={(e) => handleNavClick(e, href)}
-                    className="text-slate-300 hover:text-white text-sm transition-colors duration-200"
+                    className="text-slate-300 hover:text-white text-sm transition-colors duration-150"
                   >
                     {label}
                   </a>
@@ -117,7 +117,7 @@ export default function Footer() {
 
           {/* Legal + CTA */}
           <div>
-            <h4 className="font-display font-semibold text-sm uppercase tracking-widest text-slate-400 mb-5">Legal</h4>
+            <h4 className="font-display font-bold text-xs uppercase tracking-widest text-slate-400 mb-5">Governance</h4>
             <ul className="flex flex-col gap-3 mb-8">
               {LEGAL_LINKS.map(({ label, href }) => (
                 <li key={href}>
@@ -125,7 +125,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-slate-300 hover:text-white text-sm transition-colors duration-200"
+                    className="text-slate-300 hover:text-white text-sm transition-colors duration-150"
                   >
                     {label}
                   </a>
@@ -137,17 +137,17 @@ export default function Footer() {
               href="https://creatorcopilotai.io"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-brand-gradient text-white text-sm font-semibold hover:opacity-90 hover:scale-105 transition-all duration-200 shadow-btn-glow"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded bg-[#635BFF] text-white text-xs font-semibold hover:bg-white hover:text-[#0A2540] transition-colors duration-200"
             >
-              Try Free Today →
+              Start Free Trial →
             </a>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-500 text-sm">
+        <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-500 text-xs">
           <p>© 2026 CreatorCopilotAI. All rights reserved.</p>
-          <p>Built for creators</p>
+          <p>Compliance, Trust, & SLA Ready</p>
         </div>
       </div>
     </footer>

@@ -49,16 +49,15 @@ export default function Nav() {
 
   return (
     <>
-      {/* Scroll progress bar */}
       <div id="scroll-progress" style={{ width: `${scrollPct}%` }} />
 
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 border-b ${
+          scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-slate-100 py-3.5' : 'bg-white/50 backdrop-blur-sm border-transparent py-5'
         }`}
         initial={{ y: -80, opacity: 0 }}
         animate={{ y: 0,   opacity: 1 }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
         <div className="container-custom flex items-center justify-between">
           {/* Logo */}
@@ -66,10 +65,10 @@ export default function Nav() {
             <img
               src="/images/logo.png"
               alt="CreatorCopilotAI logo"
-              className="w-9 h-9 object-contain group-hover:scale-110 transition-transform duration-300 drop-shadow-md"
+              className="w-8 h-8 object-contain transition-transform duration-200 group-hover:scale-[1.02]"
             />
-            <span className="font-display font-bold text-lg text-text-heading tracking-tight">
-              Creator<span className="gradient-text">CopilotAI</span>
+            <span className="font-display font-extrabold text-lg text-[#0A2540] tracking-tight">
+              Creator<span className="text-[#635BFF]">CopilotAI</span>
             </span>
           </a>
 
@@ -80,18 +79,11 @@ export default function Nav() {
                 key={href}
                 href={href}
                 onClick={e => scrollTo(e, href)}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-brand-blue relative pb-1 ${
-                  activeSection === href.slice(1) ? 'text-brand-blue' : 'text-text-body'
+                className={`text-sm font-medium transition-colors duration-150 hover:text-[#635BFF] relative py-1 ${
+                  activeSection === href.slice(1) ? 'text-[#635BFF]' : 'text-[#425466]'
                 }`}
               >
                 {label}
-                {activeSection === href.slice(1) && (
-                  <motion.span
-                    layoutId="nav-indicator"
-                    className="absolute -bottom-0.5 left-0 right-0 h-0.5 rounded-full"
-                    style={{ background: 'linear-gradient(to right,#2563EB,#6D28D9)' }}
-                  />
-                )}
               </a>
             ))}
           </nav>
@@ -101,9 +93,8 @@ export default function Nav() {
               href={APP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-sm px-5 py-2.5 shimmer"
+              className="btn-primary text-xs px-4 py-2"
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               Try Web App
             </a>
           </div>
@@ -130,13 +121,13 @@ export default function Nav() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={  { opacity: 0, height: 0 }}
-              transition={{ duration: 0.25 }}
-              className="md:hidden bg-white border-t border-slate-100 overflow-hidden"
+              transition={{ duration: 0.2 }}
+              className="md:hidden bg-white border-t border-slate-150 overflow-hidden"
             >
               <div className="container-custom py-4 flex flex-col gap-4">
                 {NAV_LINKS.map(({ label, href }) => (
                   <a key={href} href={href} onClick={e => scrollTo(e, href)}
-                    className="text-base font-medium text-text-body hover:text-brand-blue transition-colors py-1">
+                    className="text-sm font-semibold text-text-body hover:text-brand-blue transition-colors py-1">
                     {label}
                   </a>
                 ))}

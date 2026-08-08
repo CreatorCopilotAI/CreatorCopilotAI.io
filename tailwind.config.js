@@ -5,60 +5,38 @@ export default {
     extend: {
       colors: {
         brand: {
-          blue: '#2563EB',
-          indigo: '#4F46E5',
-          violet: '#6D28D9',
-          'blue-light': '#3B82F6',
+          blue: '#0A2540', // Deep MNC navy (Stripe/corporate blue)
+          accent: '#00D4B2', // Vibrant teal/blue accent
+          blueLight: '#635BFF', // Tech primary blue
         },
         surface: {
           white: '#FFFFFF',
-          off: '#F8FAFC',
+          off: '#F8F9FA', // Very clean gray
+          grayBorder: '#E6E8EB',
         },
         text: {
-          heading: '#0F172A',
-          body: '#475569',
-          muted: '#94A3B8',
+          heading: '#0A2540',
+          body: '#425466',
+          muted: '#697386',
         },
       },
       fontFamily: {
-        display: ['Poppins', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       spacing: {
         18: '4.5rem',
         22: '5.5rem',
       },
       borderRadius: {
-        '2xl': '1rem',
-        '3xl': '1.5rem',
-        '4xl': '2rem',
-      },
-      backgroundImage: {
-        'brand-gradient': 'linear-gradient(135deg, #2563EB 0%, #4F46E5 50%, #6D28D9 100%)',
-        'brand-gradient-r': 'linear-gradient(to right, #2563EB, #6D28D9)',
-        'hero-glow': 'radial-gradient(ellipse at center, rgba(99,102,241,0.15) 0%, transparent 70%)',
+        'lg': '8px',
+        'xl': '12px',
+        '2xl': '16px',
       },
       boxShadow: {
-        card: '0 4px 24px rgba(15, 23, 42, 0.06)',
-        'card-hover': '0 8px 40px rgba(15, 23, 42, 0.12)',
-        'btn-glow': '0 8px 25px rgba(37, 99, 235, 0.35)',
-        'btn-glow-hover': '0 12px 35px rgba(37, 99, 235, 0.5)',
-      },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'gradient-shift': 'gradientShift 8s ease infinite',
-        'typing': 'typing 3.5s steps(40) infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-12px)' },
-        },
-        gradientShift: {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
-        },
+        card: '0 2px 5px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.05)',
+        'card-hover': '0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07)',
+        'btn-shadow': '0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08)',
       },
     },
   },
