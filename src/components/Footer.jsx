@@ -1,7 +1,8 @@
 const NAV_LINKS = [
   { label: 'Features', href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Showcase', href: '#showcase' },
+  { label: 'Playground', href: '#playground' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
   { label: 'Contact', href: 'mailto:hello@creatorcopilotai.io' },
 ];
 

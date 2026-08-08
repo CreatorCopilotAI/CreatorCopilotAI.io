@@ -2,8 +2,9 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
 import Features from './components/Features';
-import HowItWorks from './components/HowItWorks';
-import Showcase from './components/Showcase';
+import Playground from './components/Playground';
+import Pricing from './components/Pricing';
+import FAQ from './components/FAQ';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 
@@ -15,8 +16,9 @@ export default function App() {
         <Hero />
         <ProblemSolution />
         <Features />
-        <HowItWorks />
-        <Showcase />
+        <Playground />
+        <Pricing />
+        <FAQ />
         <CTA />
       </main>
       <Footer />

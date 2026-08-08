@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
   { label: 'Features',    href: '#features' },
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Showcase',    href: '#showcase' },
+  { label: 'Playground',  href: '#playground' },
+  { label: 'Pricing',     href: '#pricing' },
+  { label: 'FAQ',         href: '#faq' },
 ];
 
 const APP_URL = 'https://creatorcopilotai.io';
@@ -23,7 +24,7 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    const ids = ['hero','features','how-it-works','showcase','cta'];
+    const ids = ['hero','features','playground','pricing','faq','cta'];
     const obs = ids.map(id => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -66,23 +67,23 @@ export default function Nav() {
             </span>
           </a>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            {NAV_LINKS.map(({ label, href }) => (
-              <a
-                key={href}
-                href={href}
-                onClick={e => scrollTo(e, href)}
-                className={`text-sm font-medium transition-colors duration-150 hover:text-[#635BFF] relative py-1 ${
-                  activeSection === href.slice(1) ? 'text-[#635BFF]' : 'text-[#425466]'
-                }`}
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+          {/* Right Group: Nav Link & CTA */}
+          <div className="hidden md:flex items-center gap-8">
+            <nav className="flex items-center gap-6" aria-label="Main navigation">
+              {NAV_LINKS.map(({ label, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={e => scrollTo(e, href)}
+                  className={`text-sm font-medium transition-colors duration-150 hover:text-[#635BFF] py-1 ${
+                    activeSection === href.slice(1) ? 'text-[#635BFF]' : 'text-[#425466]'
+                  }`}
+                >
+                  {label}
+                </a>
+              ))}
+            </nav>
 
-          <div className="hidden md:flex items-center gap-3">
             <a
               href={APP_URL}
               target="_blank"
