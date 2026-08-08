@@ -13,19 +13,19 @@ const TYPING_PHRASES = [
 const FLOATING_CARDS = [
   {
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#635BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>,
-    text: 'Enterprise ideas ready', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[8%] -left-[14%]', delay: 0,
+    text: 'Enterprise ideas ready', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[8%] -left-[6%]', delay: 0,
   },
   {
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#635BFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
-    text: 'Copywriting optimized', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[56%] -left-[12%]', delay: 0.4,
+    text: 'Copywriting optimized', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[56%] -left-[4%]', delay: 0.4,
   },
   {
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#635BFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>,
-    text: '10K+ professionals', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[16%] -right-[14%]', delay: 0.25,
+    text: '10K+ professionals', bg: 'bg-white', border: 'border-slate-200', pos: 'top-[16%] -right-[6%]', delay: 0.25,
   },
   {
     icon: <svg width="14" height="14" viewBox="0 0 24 24" fill="#F59E0B" stroke="#F59E0B" strokeWidth="1"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
-    text: '4.8 App Rating', bg: 'bg-slate-50', border: 'border-slate-200', pos: 'top-[66%] -right-[12%]', delay: 0.6,
+    text: '4.8 App Rating', bg: 'bg-slate-50', border: 'border-slate-200', pos: 'top-[66%] -right-[4%]', delay: 0.6,
   },
 ];
 
@@ -80,10 +80,10 @@ export default function Hero() {
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center overflow-hidden bg-white pt-24 corporate-bg-pattern">
       <div className="container-custom relative z-10 w-full py-12 md:py-20">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-16">
 
           {/* ── Left copy ── */}
-          <div className="lg:col-span-6 flex flex-col items-start">
+          <div className="w-full lg:w-[46%] flex flex-col items-start">
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,7 +134,7 @@ export default function Hero() {
             >
               <a href={PLAY_STORE_URL} target="_blank" rel="noopener noreferrer" id="hero-play-store-cta"
                 className="btn-primary text-sm px-6 py-3">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5.25 3.062c-.156.103-.264.256-.29.438l9.02 9.02 4.021-4.021L5.431 3.093c-.156-.083-.306-.094-.431-.031zM4.09 4.312v15.375c0 .2.083.37.219.479l8.281-8.281L4.09 4.312zm10.45 8.156l4.022 4.021c.125-.062.274-.083.43-.166l2.31-1.334c.56-.323.56-.844 0-1.166l-2.31-1.334c-.156-.083-.305-.104-.43-.166l-4.022 4.021zm-1.171 1.172l-8.282 8.281c.136.11.306.094.469.021l12.562-5.4-4.749-2.902z"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.058 10.292L5.437.319c-.5-.3-1.16-.3-1.66 0-.5.3-.8.83-.8 1.4V22.28c0 .57.3 1.1.8 1.4.25.15.53.22.81.22.28 0 .56-.07.81-.22l16.666-9.973c.49-.3.79-.83.79-1.4s-.3-1.1-.79-1.4zM4.978 2.585l12.44 7.452L4.978 17.49V2.585z"/></svg>
                 Get on Play Store
               </a>
               <a href={APP_URL} target="_blank" rel="noopener noreferrer" id="hero-webapp-cta"
@@ -172,7 +172,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-6 relative flex justify-center lg:justify-end"
+            className="w-full lg:w-[42%] relative flex justify-center lg:justify-end"
           >
             <div className="relative w-full max-w-sm md:max-w-md lg:max-w-full app-screenshot-container">
               <div className="bg-white rounded-lg overflow-hidden">

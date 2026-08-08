@@ -103,9 +103,3 @@
   @apply rounded-xl border border-slate-200 shadow-card bg-white p-2;
 }
 
-/* ── Progress bar ───────────────────── */
-#scroll-progress {
-  position:fixed; top:0; left:0; height:3px; z-index:100;
-  background: #635BFF;
-  transition: width 0.1s linear;
-}

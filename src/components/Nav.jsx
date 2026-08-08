@@ -13,14 +13,10 @@ export default function Nav() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [activeSection, setActive] = useState('');
-  const [scrollPct, setScrollPct] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      const doc  = document.documentElement;
-      const pct  = (window.scrollY / (doc.scrollHeight - doc.clientHeight)) * 100;
-      setScrollPct(Math.min(pct, 100));
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -49,8 +45,6 @@ export default function Nav() {
 
   return (
     <>
-      <div id="scroll-progress" style={{ width: `${scrollPct}%` }} />
-
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 border-b ${
           scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-slate-100 py-3.5' : 'bg-white/50 backdrop-blur-sm border-transparent py-5'
