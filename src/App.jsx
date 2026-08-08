@@ -2,7 +2,6 @@ import Nav from './components/Nav';
 import Hero from './components/Hero';
 import ProblemSolution from './components/ProblemSolution';
 import Features from './components/Features';
-import Playground from './components/Playground';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import CTA from './components/CTA';
@@ -16,7 +15,6 @@ export default function App() {
         <Hero />
         <ProblemSolution />
         <Features />
-        <Playground />
         <Pricing />
         <FAQ />
         <CTA />

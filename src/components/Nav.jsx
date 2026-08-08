@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
   { label: 'Features',    href: '#features' },
-  { label: 'Playground',  href: '#playground' },
   { label: 'Pricing',     href: '#pricing' },
   { label: 'FAQ',         href: '#faq' },
 ];
@@ -24,7 +23,7 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    const ids = ['hero','features','playground','pricing','faq','cta'];
+    const ids = ['hero','features','pricing','faq','cta'];
     const obs = ids.map(id => {
       const el = document.getElementById(id);
       if (!el) return null;
