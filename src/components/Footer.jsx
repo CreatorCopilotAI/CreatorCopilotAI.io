@@ -67,15 +67,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 rounded-xl icon-gradient flex items-center justify-center shadow-md">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="white" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(255,255,255,0.2)"/>
-                  <path d="M9 12L11 14L15 10" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="18" cy="5" r="2" fill="white" opacity="0.9"/>
-                </svg>
-              </div>
+              <img
+                src="/images/logo.png"
+                alt="CreatorCopilotAI logo"
+                className="w-9 h-9 object-contain"
+              />
               <span className="font-display font-bold text-lg tracking-tight">
-                ContentFlow <span style={{ background: 'linear-gradient(135deg,#60a5fa,#a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>AI</span>
+                Creator<span style={{ background: 'linear-gradient(135deg,#60a5fa,#a78bfa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>CopilotAI</span>
               </span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
@@ -148,8 +146,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-3 text-slate-500 text-sm">
-          <p>© 2026 ContentFlow AI. All rights reserved.</p>
-          <p className="text-slate-600">Made with ❤️ for creators</p>
+          <p>© 2026 CreatorCopilotAI. All rights reserved.</p>
+          <p>Built for creators</p>
         </div>
       </div>
     </footer>
