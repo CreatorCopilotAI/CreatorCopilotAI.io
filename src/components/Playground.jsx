@@ -11,35 +11,35 @@ const TOOLS = [
 const PRESETS = {
   ideas: {
     'productivity': [
-      '💡 The "3-Second Rule" that saves me 10 hours a week.',
-      '💡 5 productivity habits I stole from high-performing developers.',
-      '💡 Why waking up at 5 AM is actually ruining your focus index.',
+      'The "3-Second Rule" that saves me 10 hours a week.',
+      '5 productivity habits I stole from high-performing developers.',
+      'Why waking up at 5 AM is actually ruining your focus index.',
     ],
     'web development': [
-      '💡 5 modern CSS properties you need to start using today.',
-      '💡 Why we migrated our backend from Node to Go (Honest review).',
-      '💡 The developer roadmap to junior-to-senior in 12 months.',
+      '5 modern CSS properties you need to start using today.',
+      'Why we migrated our backend from Node to Go (Honest review).',
+      'The developer roadmap to junior-to-senior in 12 months.',
     ],
   },
   script: {
     'rust': {
-      hook: '🔥 Everyone is talking about Rust, but nobody tells you the real cost...',
+      hook: 'Everyone is talking about Rust, but nobody tells you the real cost...',
       body: 'Rust is blazing fast, memory safe without garbage collection, and has a great compiler. But the borrow checker will make you pull your hair out. Here is why the learning curve is 100% worth it.',
-      cta: '👉 Follow for dev insights. Web trial at creatorcopilotai.io.',
+      cta: 'Follow for dev insights. Web trial at creatorcopilotai.io.',
     },
     'productivity': {
-      hook: '🔥 The biggest focus trap you fall into every single morning is this...',
+      hook: 'The biggest focus trap you fall into every single morning is this...',
       body: 'Checking email first thing sets your day on defense. Instead, time-block the first 90 minutes for deep work. No Slack, no notifications, no check-ins. Watch your output double.',
-      cta: '👉 Save this for later. Try the app at creatorcopilotai.io.',
+      cta: 'Save this for later. Try the app at creatorcopilotai.io.',
     },
   },
   caption: {
     'portfolio': {
-      text: '🚀 After 3 months of late nights, my new portfolio is finally live! Built with Next.js, Tailwind, and Framer Motion. Focused on clean typography and SLA loading speeds.',
+      text: 'After 3 months of late nights, my new portfolio is finally live! Built with Next.js, Tailwind, and Framer Motion. Focused on clean typography and SLA loading speeds.',
       tags: '#webdev #javascript #nextjs #portfolio #frontend #career',
     },
     'creator': {
-      text: '✍️ Consistently publishing content is a full-time job. That is why I built CreatorCopilotAI — to automate scripting, ideation, and posting workflows.',
+      text: 'Consistently publishing content is a full-time job. That is why I built CreatorCopilotAI — to automate scripting, ideation, and posting workflows.',
       tags: '#creatoreconomy #contentcreator #solopreneur #ai #saas',
     },
   },

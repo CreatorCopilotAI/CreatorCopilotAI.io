@@ -13,9 +13,11 @@ const SEARCH_ITEMS = [
   { category: 'Metrics', title: 'Hallucination & Latency Benchmarks', desc: '<8ms latency overhead, 99.4% interception rate', href: '#metrics', badge: 'SLA' },
   { category: 'Pricing', title: 'Free Open Source & Enterprise VPC', desc: 'Zero licensing cost on Apache 2.0 core', href: '#pricing', badge: 'Plans' },
   { category: 'FAQ', title: 'Frequently Asked Questions', desc: 'Common technical, security, and VPC questions', href: '#faq', badge: 'Docs' },
+  { category: 'Community', title: 'Feedback & Roadmap Hub', desc: 'Browse and upvote community feature requests & reported issues', action: 'viewer', badge: 'Live Board' },
+  { category: 'Community', title: 'Submit Feedback & Issues', desc: 'Tell us what features you want or report bugs', action: 'submit', badge: 'Submit' },
 ];
 
-export default function SearchModal({ isOpen, onClose }) {
+export default function SearchModal({ isOpen, onClose, onOpenFeedback, onOpenFeedbackViewer }) {
   const [query, setQuery] = useState('');
 
   useEffect(() => {
@@ -87,11 +89,21 @@ export default function SearchModal({ isOpen, onClose }) {
                 filtered.map((item, idx) => (
                   <a
                     key={idx}
-                    href={item.href}
-                    onClick={() => {
-                      onClose();
+                    href={item.href || '#'}
+                    onClick={(e) => {
+                      if (item.action === 'viewer' && onOpenFeedbackViewer) {
+                        e.preventDefault();
+                        onClose();
+                        onOpenFeedbackViewer();
+                      } else if (item.action === 'submit' && onOpenFeedback) {
+                        e.preventDefault();
+                        onClose();
+                        onOpenFeedback();
+                      } else {
+                        onClose();
+                      }
                     }}
-                    className="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-50 transition-colors group"
+                    className="flex items-center justify-between p-3 rounded-xl hover:bg-zinc-50 transition-colors group cursor-pointer"
                   >
                     <div className="flex flex-col">
                       <div className="flex items-center gap-2">

@@ -104,7 +104,9 @@ export default function AIChatFab() {
             <div className="p-4 border-b border-zinc-100 bg-zinc-50/80 flex items-center justify-between">
               <div className="flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-zinc-900 flex items-center justify-center text-white text-xs">
-                  ✦
+                  <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z" fill="currentColor" />
+                  </svg>
                 </div>
                 <div>
                   <div className="text-xs font-semibold text-zinc-900">CreatorCopilot Assistant</div>
@@ -117,8 +119,11 @@ export default function AIChatFab() {
               <button
                 onClick={() => setChatOpen(false)}
                 className="p-1 rounded-md text-zinc-400 hover:text-zinc-700 hover:bg-zinc-100"
+                aria-label="Close Chat"
               >
-                ✕
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
               </button>
             </div>
 
