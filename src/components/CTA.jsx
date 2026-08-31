@@ -54,7 +54,7 @@ export default function CTA() {
               Get Free Sandbox Access
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/CreatorCopilotAI"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-light-secondary px-5 py-2.5 text-xs"

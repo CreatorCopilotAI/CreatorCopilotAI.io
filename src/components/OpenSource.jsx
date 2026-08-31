@@ -87,7 +87,7 @@ export default function OpenSource() {
             {/* Right Group: Copy Button & Stars */}
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com"
+                href="https://github.com/CreatorCopilotAI"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-zinc-300 text-xs font-mono transition-colors"
@@ -192,21 +192,14 @@ export default function OpenSource() {
           </div>
           <div className="flex items-center gap-2">
             <a
-              href="https://github.com"
+              href="https://github.com/CreatorCopilotAI"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-light-secondary text-xs"
             >
               Star on GitHub ⭐
             </a>
-            <a
-              href="https://discord.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-light-primary text-xs"
-            >
-              Join Discord
-            </a>
+
           </div>
         </div>
       </div>

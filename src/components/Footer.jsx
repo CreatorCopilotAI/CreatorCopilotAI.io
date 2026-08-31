@@ -50,7 +50,7 @@ export default function Footer() {
               <li><a href="#open-source" className="hover:text-zinc-900 transition-colors">VPC Deployment Docs</a></li>
               <li><a href="#open-source" className="hover:text-zinc-900 transition-colors">Docker Hub Image</a></li>
               <li><a href="#open-source" className="hover:text-zinc-900 transition-colors">Helm Kubernetes Charts</a></li>
-              <li><a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900 transition-colors">Discord Community</a></li>
+
             </ul>
           </div>
 
@@ -75,8 +75,7 @@ export default function Footer() {
             © {new Date().getFullYear()} CreatorCopilotAI.io. Apache 2.0 Open Source Platform.
           </div>
           <div className="flex items-center gap-6 font-mono text-[11px]">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">GitHub</a>
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">Discord</a>
+            <a href="https://github.com/CreatorCopilotAI" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">GitHub</a>
             <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="hover:text-zinc-900">Twitter (X)</a>
           </div>
         </div>
