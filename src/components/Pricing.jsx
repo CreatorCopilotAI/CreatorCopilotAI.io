@@ -1,150 +1,162 @@
 import { useState } from 'react';
-import AnimatedSection from './AnimatedSection';
+import { motion } from 'framer-motion';
 
 const TIERS = [
   {
-    name: 'Starter Console',
-    desc: 'Core assets output pipeline for hobby creators.',
-    priceMonthly: 0,
-    priceYearly: 0,
+    name: 'Developer (OSS)',
+    tagline: 'Self-hosted & local sandbox',
+    price: '$0',
+    frequency: 'forever',
+    badge: 'Apache 2.0',
+    popular: false,
+    ctaText: 'Deploy Locally',
+    ctaHref: '#open-source',
     features: [
-      '5 AI generations per month',
-      'Basic scripting outline tool',
-      'Unified hashtags helper',
-      'Platform formatting filters',
-      'Standard model queue speed',
+      'Apache 2.0 licensed core engine',
+      'Unlimited local simulation runs',
+      'Deterministic MCP guardrail rules',
+      'Docker & Helm deployment charts',
+      'Community Discord & GitHub support',
+      '100% offline & zero telemetry',
     ],
-    cta: 'Start Free Sandbox',
-    recommended: false,
-    url: 'https://creatorcopilotai.io',
   },
   {
-    name: 'Professional Tier',
-    desc: 'Volume scaling outputs for active developers and professionals.',
-    priceMonthly: 19,
-    priceYearly: 15,
+    name: 'Team & Pro',
+    tagline: 'Cloud acceleration & managed sandboxes',
+    price: '$29',
+    frequency: 'per month',
+    badge: 'Most Popular',
+    popular: true,
+    ctaText: 'Start Pro Sandbox',
+    ctaHref: '#open-source',
     features: [
-      'Unlimited script & hook compiling',
-      'Algorithmic content score insights',
-      'Platform-safe compliance checks',
-      'Interactive unified planning calendar',
-      'Priority SLA queue processing',
-      'Dedicated email console support',
+      'Everything in Developer, plus:',
+      'Managed cloud scenario clusters',
+      '100,000 automated eval runs / mo',
+      'Automated prompt RL optimization',
+      'Full trace replays and error logs',
+      'Team workspace & shared prompt library',
+      'Priority email & chat assistance',
     ],
-    cta: 'Start Pro Trial',
-    recommended: true,
-    url: 'https://creatorcopilotai.io',
   },
   {
-    name: 'Studio Enterprise',
-    desc: 'Multi-seat licensing and custom model weights training.',
-    priceMonthly: 49,
-    priceYearly: 39,
+    name: 'Enterprise VPC',
+    tagline: 'Air-gapped dedicated deployment',
+    price: 'Custom',
+    frequency: 'annual billing',
+    badge: 'SOC 2 Ready',
+    popular: false,
+    ctaText: 'Contact Architecture Team',
+    ctaHref: 'mailto:enterprise@creatorcopilotai.io',
     features: [
-      'Unlimited seats & team licensing',
-      'Custom fine-tuned voice models',
-      'Outbound API console endpoint access',
-      '99.9% uptime SLA compliance guarantee',
-      'Dedicated account solutions manager',
-      'Direct team onboarding training sessions',
+      'Dedicated on-prem or AWS/GCP VPC',
+      'Custom LLM & database connectors',
+      'Strict zero data retention guarantee',
+      '99.99% Enterprise Uptime SLA',
+      'SAML SSO & Role-based Access Control',
+      'Dedicated Solutions Architect (24/7)',
+      'Custom regulatory audit reports',
     ],
-    cta: 'Contact Enterprise',
-    recommended: false,
-    url: 'https://creatorcopilotai.io',
   },
 ];
 
 export default function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(true);
-
   return (
-    <section id="pricing" className="section-padding bg-surface-off border-y border-surface-grayBorder">
-      <div className="container-custom">
+    <section id="pricing" className="py-24 bg-white border-t border-zinc-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <AnimatedSection className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-[#635BFF] font-semibold text-xs uppercase tracking-widest mb-3">Pricing Plans</p>
-          <h2 className="section-heading mb-4">
-            Licensing Options
-          </h2>
-          <p className="section-subheading">
-            SLA-backed tiers designed to grow with your content output volume. No hidden terms.
-          </p>
-
-          {/* Toggle */}
-          <div className="flex items-center justify-center gap-3 mt-8">
-            <span className={`text-xs font-semibold ${!isAnnual ? 'text-[#0A2540]' : 'text-text-muted'}`}>Monthly</span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="relative w-10 h-6 rounded-full bg-slate-300 p-0.5 transition-colors focus:outline-none"
-              aria-label="Toggle annual pricing"
-            >
-              <div
-                className={`w-5 h-5 rounded-full bg-[#635BFF] transition-transform duration-200 ${
-                  isAnnual ? 'translate-x-4' : 'translate-x-0'
-                }`}
-              />
-            </button>
-            <div className="flex items-center gap-1.5">
-              <span className={`text-xs font-semibold ${isAnnual ? 'text-[#0A2540]' : 'text-text-muted'}`}>Yearly billing</span>
-              <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Save 20%</span>
-            </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-xs font-mono mb-4">
+            <span>TRANSPARENT PRICING</span>
           </div>
-        </AnimatedSection>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-900 tracking-tight">
+            Start for free. <span className="font-semibold text-zinc-950">Scale securely.</span>
+          </h2>
+          <p className="mt-4 text-base text-zinc-600">
+            No credit card required for open source self-hosting. Generous free capabilities across every tier.
+          </p>
+        </div>
 
         {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {TIERS.map((tier, i) => {
-            const price = isAnnual ? tier.priceYearly : tier.priceMonthly;
-            return (
-              <AnimatedSection key={i} delay={i * 0.08}>
-                <div
-                  className={`card-mnc h-full p-8 flex flex-col justify-between relative ${
-                    tier.recommended ? 'border-2 border-[#635BFF] shadow-card-hover' : ''
-                  }`}
-                >
-                  {tier.recommended && (
-                    <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-[#635BFF] text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded shadow-sm">
-                      Recommended
-                    </span>
-                  )}
-
-                  <div>
-                    <h3 className="font-display font-bold text-lg text-[#0A2540] mb-2">{tier.name}</h3>
-                    <p className="text-text-muted text-xs leading-relaxed mb-6 min-h-[32px]">{tier.desc}</p>
-
-                    {/* Price */}
-                    <div className="flex items-baseline gap-1 mb-8">
-                      <span className="text-3xl font-extrabold text-[#0A2540]">${price}</span>
-                      <span className="text-text-body text-xs font-semibold">/ month</span>
-                    </div>
-
-                    {/* Features */}
-                    <ul className="space-y-4 mb-8">
-                      {tier.features.map((f, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs text-text-body">
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#635BFF" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <a
-                    href={tier.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`w-full py-3 rounded text-center text-xs font-bold transition-all duration-200 ${
-                      tier.recommended
-                        ? 'bg-[#635BFF] text-white hover:bg-[#0A2540] shadow-md'
-                        : 'bg-slate-100 text-[#0A2540] hover:bg-slate-200 border border-slate-200'
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
+          {TIERS.map((tier, idx) => (
+            <motion.div
+              key={tier.name}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className={`p-8 rounded-3xl border flex flex-col justify-between transition-all ${
+                tier.popular
+                  ? 'bg-zinc-900 text-white border-zinc-900 shadow-xl relative'
+                  : 'bg-white text-zinc-900 border-zinc-200 shadow-card hover:shadow-card-hover'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span
+                    className={`text-[11px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                      tier.popular
+                        ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-400/30'
+                        : 'bg-zinc-100 text-zinc-600 border border-zinc-200'
                     }`}
                   >
-                    {tier.cta}
-                  </a>
+                    {tier.badge}
+                  </span>
                 </div>
-              </AnimatedSection>
-            );
-          })}
+
+                <h3 className={`text-xl font-bold ${tier.popular ? 'text-white' : 'text-zinc-900'}`}>
+                  {tier.name}
+                </h3>
+                <p className={`text-xs mt-1 ${tier.popular ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                  {tier.tagline}
+                </p>
+
+                <div className="mt-6 mb-8 flex items-baseline gap-2">
+                  <span className={`text-4xl sm:text-5xl font-extrabold tracking-tight ${tier.popular ? 'text-white' : 'text-zinc-900'}`}>
+                    {tier.price}
+                  </span>
+                  <span className={`text-xs font-mono ${tier.popular ? 'text-zinc-400' : 'text-zinc-500'}`}>
+                    / {tier.frequency}
+                  </span>
+                </div>
+
+                {/* Features List */}
+                <div className="space-y-3 pt-6 border-t border-zinc-200/20">
+                  {tier.features.map((f, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm">
+                      <svg
+                        className={`w-4 h-4 mt-0.5 shrink-0 ${tier.popular ? 'text-emerald-400' : 'text-emerald-600'}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className={tier.popular ? 'text-zinc-200' : 'text-zinc-700'}>
+                        {f}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Button */}
+              <div className="mt-10">
+                <a
+                  href={tier.ctaHref}
+                  className={`w-full py-3 px-4 rounded-xl text-center text-xs font-semibold block transition-all ${
+                    tier.popular
+                      ? 'bg-white text-zinc-900 hover:bg-zinc-100 shadow-md'
+                      : 'bg-zinc-900 text-white hover:bg-zinc-800 shadow-sm'
+                  }`}
+                >
+                  {tier.ctaText}
+                </a>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

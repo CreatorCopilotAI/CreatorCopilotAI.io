@@ -1,70 +1,116 @@
-import AnimatedSection from './AnimatedSection';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
-const COMPARISONS = [
+const USE_CASES = [
   {
-    topic: 'Ideation Speed',
-    traditional: 'Manual brainstorming, keyword scanning, hours of creative blocker search.',
-    creatorCopilot: 'Instant generation of 10+ custom trending hooks & titles within 3 seconds.',
+    id: 'content',
+    tag: 'CONTENT AGENTS',
+    title: 'Viral Script & Hook Generation',
+    desc: 'Autonomous creator agents that analyze trending hooks, generate multi-scene video scripts, and adapt tone for LinkedIn, X, and YouTube.',
+    stat: '10x Faster Turnaround',
+    previewText: 'Generated: 5 High-Retention Hooks · 1.2k words/min · 0 Hallucinations',
   },
   {
-    topic: 'Script Drafting',
-    traditional: 'Rough outlining, complex formatting, high writer draft friction.',
-    creatorCopilot: 'Ready-to-record structured script generation (Hook, Content, CTA) in 1 click.',
+    id: 'voice',
+    tag: 'VOICE & MULTIMODAL',
+    title: 'Video Narration & Speech Sync',
+    desc: 'Generate voiceover-ready pacing markers, phonetic guides, and timestamped teleprompter tracks for video creators.',
+    stat: '<120ms Generation',
+    previewText: 'Timeline: 00:00 [Hook] → 00:15 [Value Prop] → 00:45 [Call-to-Action]',
   },
   {
-    topic: 'Distribution Prep',
-    traditional: 'Guesswork tags, formatting captions manually for every separate network.',
-    creatorCopilot: 'Platform-optimized auto-captions and 15+ relevant hashtags ready to publish.',
+    id: 'workflows',
+    tag: 'AUTONOMOUS SWARMS',
+    title: 'Multi-Agent Publishing Workflows',
+    desc: 'Chained agents where Researcher gathers insights, Writer crafts drafts, and Critic verifies factual accuracy before queuing for review.',
+    stat: '100% Policy Compliant',
+    previewText: 'Agent Swarm: Researcher → Writer → FactChecker → Publisher',
   },
   {
-    topic: 'Team Planning',
-    traditional: 'Fragmented spreadsheets, calendar mismatches, unscheduled delivery.',
-    creatorCopilot: 'Integrated unified plan pipeline to directly queue ideas into structured slots.',
+    id: 'rag',
+    tag: 'BRAND RAG MEMORY',
+    title: 'Private Knowledge & Style Guidelines',
+    desc: 'Index your past viral posts, brand guidelines, and product documentation with exact semantic retrieval and zero data leakage.',
+    stat: 'Zero Egress VPC',
+    previewText: 'Indexed: 14 Brand Stylebooks · Vector Retrieval: 4ms · SOC 2',
+  },
+  {
+    id: 'compliance',
+    tag: 'DETERMINISTIC EVALS',
+    title: 'Brand Safety & Hallucination Defense',
+    desc: 'Guardrails intercept unsupported factual claims, off-brand voice shifts, or dangerous hallucinated links before anything goes live.',
+    stat: '99.4% Interception',
+    previewText: 'Firewall: 0 Hallucinations · Fact Verification Engine: Active',
+  },
+  {
+    id: 'enterprise',
+    tag: 'GROWTH TEAMS',
+    title: 'Enterprise Campaign Scale',
+    desc: 'Deploy localized, multi-language variants for global marketing campaigns with synchronized messaging and approval hierarchies.',
+    stat: '50M+ API Requests',
+    previewText: 'Localized: 18 Languages · Centralized Admin Console · SSO / RBAC',
   },
 ];
 
 export default function ProblemSolution() {
   return (
-    <section id="problem-solution" className="section-padding bg-surface-off border-y border-surface-grayBorder">
-      <div className="container-custom">
+    <section id="use-cases" className="py-24 bg-white border-t border-zinc-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <AnimatedSection className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-[#635BFF] font-semibold text-xs uppercase tracking-widest mb-3">Enterprise Comparison</p>
-          <h2 className="section-heading mb-4">
-            Simplify Your Content Supply Chain
-          </h2>
-          <p className="section-subheading">
-            See how CreatorCopilotAI stacks up against traditional manual production workflows.
-          </p>
-        </AnimatedSection>
-
-        {/* Structural Comparison Table */}
-        <AnimatedSection>
-          <div className="w-full overflow-hidden rounded-xl border border-surface-grayBorder bg-white shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-3 bg-slate-50 border-b border-surface-grayBorder text-xs md:text-sm font-bold uppercase tracking-wider text-text-heading">
-              <div className="p-4 md:p-6">Content Stage</div>
-              <div className="p-4 md:p-6 border-t md:border-t-0 md:border-l border-surface-grayBorder text-red-500">Traditional Bottlenecks</div>
-              <div className="p-4 md:p-6 border-t md:border-t-0 md:border-l border-surface-grayBorder text-emerald-600 bg-emerald-50/20">With CreatorCopilotAI</div>
-            </div>
-
-            <div className="divide-y divide-surface-grayBorder">
-              {COMPARISONS.map((row, idx) => (
-                <div key={idx} className="grid grid-cols-1 md:grid-cols-3 text-sm transition-colors hover:bg-slate-50/50">
-                  <div className="p-5 md:p-6 font-bold text-[#0A2540]">{row.topic}</div>
-                  <div className="p-5 md:p-6 border-t md:border-t-0 md:border-l border-surface-grayBorder text-text-body">
-                    {row.traditional}
-                  </div>
-                  <div className="p-5 md:p-6 border-t md:border-t-0 md:border-l border-surface-grayBorder text-text-heading font-medium bg-emerald-50/5">
-                    <span className="inline-flex items-center gap-1.5 text-emerald-700">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-emerald-600 flex-shrink-0"><polyline points="20 6 9 17 4 12"/></svg>
-                      {row.creatorCopilot}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-xs font-mono mb-4">
+            <span>PRODUCTION SCENARIOS</span>
           </div>
-        </AnimatedSection>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-900 tracking-tight">
+            See how it works. <span className="font-semibold text-zinc-950">For your AI.</span>
+          </h2>
+          <p className="mt-4 text-base text-zinc-600">
+            From solo content creators to enterprise growth teams, CreatorCopilotAI provides resilient infrastructure for every workflow.
+          </p>
+        </div>
+
+        {/* Bento Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {USE_CASES.map((uc, idx) => (
+            <motion.div
+              key={uc.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: idx * 0.05 }}
+              className="p-6 rounded-2xl bg-white border border-zinc-200 shadow-card hover:shadow-card-hover hover:border-zinc-300 transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-100">
+                    {uc.tag}
+                  </span>
+                  <span className="text-xs font-mono font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">
+                    {uc.stat}
+                  </span>
+                </div>
+
+                <h3 className="text-lg font-semibold text-zinc-900 mb-2">
+                  {uc.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-6">
+                  {uc.desc}
+                </p>
+              </div>
+
+              {/* Console preview snippet */}
+              <div className="p-3 rounded-xl bg-zinc-50 border border-zinc-200 font-mono text-[11px] text-zinc-600">
+                <div className="flex items-center gap-1.5 mb-1 text-[10px] text-zinc-400">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span>Agent Stream</span>
+                </div>
+                <div className="text-zinc-800 font-medium truncate">
+                  {uc.previewText}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

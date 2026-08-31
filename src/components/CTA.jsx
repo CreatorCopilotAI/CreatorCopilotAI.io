@@ -1,73 +1,68 @@
-import AnimatedSection from './AnimatedSection';
-
-const PLAY_STORE_URL = 'https://creatorcopilotai.io';
-const APP_URL        = 'https://creatorcopilotai.io';
+import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export default function CTA() {
+  const [copied, setCopied] = useState(false);
+
+  const copyCommand = () => {
+    navigator.clipboard.writeText('docker run -d -p 8080:8080 ghcr.io/creatorcopilotai/engine:latest');
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <section id="cta" className="section-padding bg-[#F8F9FA] border-t border-surface-grayBorder">
-      <div className="container-custom">
-        <AnimatedSection>
-          <div
-            className="relative overflow-hidden rounded-xl px-8 py-16 md:px-16 md:py-20 text-center border border-surface-grayBorder bg-white shadow-sm"
-          >
-            {/* Minimalist Grid Pattern */}
-            <div
-              className="absolute inset-0 pointer-events-none opacity-[0.02]"
-              style={{ backgroundImage: 'radial-gradient(#0A2540 1px, transparent 1px)', backgroundSize: '16px 16px' }}
-              aria-hidden="true"
-            />
+    <section id="cta" className="relative py-24 bg-white border-t border-zinc-200 overflow-hidden blueprint-grid-light">
+      {/* Background glow horizon */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-indigo-100/60 via-emerald-100/40 to-indigo-100/60 blur-3xl pointer-events-none -z-10" />
 
-            {/* Minimalist 3D perspective logo replacement (Clean bordered card logo) */}
-            <div className="relative z-10 mb-6 flex justify-center">
-              <div className="w-12 h-12 rounded border border-[#E6E8EB] bg-white flex items-center justify-center shadow-sm">
-                <img src="/images/logo.png" alt="CreatorCopilotAI logo" className="w-8 h-8 object-contain" />
-              </div>
-            </div>
-
-            <div className="relative z-10">
-              <p className="text-[#635BFF] text-xs font-semibold uppercase tracking-widest mb-3">Enterprise Acceleration</p>
-              <h2 className="font-display font-extrabold text-3xl md:text-4xl lg:text-5xl text-[#0A2540] tracking-tight leading-tight mb-4 max-w-2xl mx-auto">
-                Accelerate Content Production
-              </h2>
-              <p className="text-text-body text-base md:text-lg mb-8 max-w-xl mx-auto">
-                Implement CreatorCopilotAI across your marketing workspace to automate copywriting tasks and scale publishing outputs.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-center">
-                <a
-                  href={PLAY_STORE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="cta-play-store"
-                  className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-black text-white hover:bg-neutral-900 transition-colors duration-200 border border-neutral-800 shadow-sm"
-                >
-                  <img
-                    src="/images/play_store_logo.png"
-                    alt="Google Play logo"
-                    className="w-[24px] h-[24px] object-contain flex-shrink-0"
-                  />
-                  <div className="text-left flex flex-col justify-center leading-none">
-                    <span className="text-[7.5px] font-bold text-neutral-300 tracking-wider uppercase">GET IT ON</span>
-                    <span className="text-xs font-semibold text-white tracking-tight mt-0.5">Google Play</span>
-                  </div>
-                </a>
-                <a
-                  href={APP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  id="cta-webapp"
-                  className="btn-secondary text-sm px-6 py-3"
-                >
-                  Access Web Console
-                </a>
-              </div>
-              <p className="text-text-muted text-xs mt-4">
-                Enterprise SLA terms apply. No configuration required to begin.
-              </p>
-            </div>
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <div className="p-8 sm:p-14 rounded-3xl bg-white border border-zinc-200 shadow-elevated">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-mono mb-6">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>INSTANT ZERO-CONFIG DEPLOYMENT</span>
           </div>
-        </AnimatedSection>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light text-zinc-900 tracking-tight leading-tight">
+            Ship reliable AI creator agents <br />
+            <span className="font-semibold text-zinc-950">in under 5 minutes.</span>
+          </h2>
+
+          <p className="mt-4 text-base text-zinc-600 max-w-xl mx-auto leading-relaxed">
+            Eliminate hallucinations, enforce deterministic safety guardrails, and keep all data inside your VPC with Apache 2.0 open source.
+          </p>
+
+          {/* Terminal Command Box */}
+          <div className="mt-8 max-w-xl mx-auto flex items-center justify-between p-2.5 rounded-xl bg-zinc-950 text-zinc-200 font-mono text-xs border border-zinc-800 shadow-md">
+            <div className="flex items-center gap-2 overflow-x-auto px-2">
+              <span className="text-emerald-400 font-bold">$</span>
+              <span className="truncate">docker run -d -p 8080:8080 ghcr.io/creatorcopilotai/engine</span>
+            </div>
+            <button
+              onClick={copyCommand}
+              className="ml-2 px-3 py-1.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-sans font-medium transition-colors shrink-0"
+            >
+              {copied ? '✓ Copied' : 'Copy'}
+            </button>
+          </div>
+
+          {/* CTAs */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href="#open-source"
+              className="btn-light-primary px-6 py-2.5 text-xs shadow-sm"
+            >
+              Get Free Sandbox Access
+            </a>
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-light-secondary px-5 py-2.5 text-xs"
+            >
+              Star on GitHub ⭐ (986)
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
